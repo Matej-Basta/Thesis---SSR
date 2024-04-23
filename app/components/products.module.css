@@ -1,7 +1,5 @@
 .products {
-    background-color: #000235;
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: auto auto auto;
-    padding: 2.5rem 5rem;
 }

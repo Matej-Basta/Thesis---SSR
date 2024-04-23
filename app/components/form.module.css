@@ -1,0 +1,20 @@
+.form {
+    width: 55%;
+}
+
+.doubleField {
+    display: flex;
+    justify-content: space-between;
+}
+
+.doubleField-field {
+    width: 48%;
+}
+
+.input {
+    border-radius: 5px;
+    display: block;
+    height: 30px;
+    margin: 0.9rem 0;
+    width: 100%;
+}
