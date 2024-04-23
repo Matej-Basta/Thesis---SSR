@@ -1,7 +1,22 @@
+"use client";
 import ProductType from '../types/ProductInterface';
 import styles from './product.module.css';
+import { useGenerationStore } from '../state/cart';
 
 export default function Product({ product }: { product: ProductType }) {
+    const {cart, setCart} = useGenerationStore();
+    
+    const addToCart = () => {
+        console.log(cart);
+        const item = cart.find((cartItem) => cartItem.id === product.id);
+        if (item) {
+            item.quantity += 1;
+        } else {
+            cart.push({...product, quantity: 1});
+        }
+        setCart([...cart]);
+    }
+
     return (
         <div className={styles["product-container"]}>
             <img src={product.image} alt={product.name} width={200} height={200} className={styles["product-image"]}/>
@@ -11,7 +26,7 @@ export default function Product({ product }: { product: ProductType }) {
                     <p className={styles["product-price"]}>{product.price} DKK</p>
                 </div>
                 <p>{product.description}</p>
-                <button className={styles["product-button"]}>Add to Cart</button>
+                <button onClick={addToCart} className={styles["product-button"]}>Add to Cart</button>
             </div>
         </div>
     )
