@@ -17,7 +17,7 @@ export default function Header() {
         <FaShoppingCart onClick={() => setIsCartVisible(!isCartVisible)} className={styles["cart-icon"]}/>
         <div>{itemQuantity}</div>
       </div>
-      <Cart />
+      {isCartVisible ? <Cart /> : null}
     </header>
   );
 }
