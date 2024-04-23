@@ -1,13 +1,12 @@
 "use client";
 import ProductType from '../types/ProductInterface';
 import styles from './product.module.css';
-import { useGenerationStore } from '../state/cart';
+import { useGenerationStoreCart } from '../state/cart';
 
 export default function Product({ product }: { product: ProductType }) {
-    const {cart, setCart} = useGenerationStore();
+    const {cart, setCart} = useGenerationStoreCart();
     
     const addToCart = () => {
-        console.log(cart);
         const item = cart.find((cartItem) => cartItem.id === product.id);
         if (item) {
             item.quantity += 1;

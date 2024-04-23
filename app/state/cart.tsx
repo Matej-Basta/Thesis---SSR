@@ -1,17 +1,17 @@
 import {create} from "zustand";
 import ProductType from "../types/ProductInterface";
 
-interface CartItem extends ProductType {
+export interface CartItemType extends ProductType {
     quantity: number;
 }
 
 interface GenerationState {
-    cart: CartItem[];
-    setCart: (cart: CartItem[]) => void;
+    cart: CartItemType[];
+    setCart: (cart: CartItemType[]) => void;
 }
 
 
-export const useGenerationStore = create<GenerationState>((set) => ({
+export const useGenerationStoreCart = create<GenerationState>((set) => ({
     cart: [],
     setCart: (cart) => set({cart}),
 }));

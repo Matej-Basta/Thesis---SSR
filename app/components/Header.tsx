@@ -1,18 +1,23 @@
 "use client";
 import styles from "./header.module.css";
 import { FaShoppingCart } from "react-icons/fa";
-import { useGenerationStore } from "../state/cart";
+import { useGenerationStoreCart, CartItemType } from "../state/cart";
+import { useGenerationStoreCartVisibility } from "../state/cartVisibility";
+import Cart from "./Cart";
 
 export default function Header() {
-  const {cart} = useGenerationStore();
-  const itemQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
+  const {cart} = useGenerationStoreCart();
+  const {isCartVisible, setIsCartVisible} = useGenerationStoreCartVisibility();
+
+  const itemQuantity = cart.reduce((acc: number, item: CartItemType) => acc + item.quantity, 0);
   return (
     <header className={styles.header}>
       <h1>Header</h1>
       <div className={styles.cart}>
-        <FaShoppingCart className={styles["cart-icon"]}/>
+        <FaShoppingCart onClick={() => setIsCartVisible(!isCartVisible)} className={styles["cart-icon"]}/>
         <div>{itemQuantity}</div>
       </div>
+      <Cart />
     </header>
   );
 }

@@ -1,9 +1,9 @@
 "use client";
 import styles from "./price.module.css";
-import { useGenerationStore } from "../state/cart";
+import { useGenerationStoreCart } from "../state/cart";
 
 export default function Price() {
-    const {cart} = useGenerationStore();
+    const {cart} = useGenerationStoreCart();
     const priceOfItems = cart.reduce((acc, item) => acc + (item.quantity*item.price), 0);
     const roundedPrice = Number(priceOfItems.toFixed(2));
     const deliveryPrice = Number(roundedPrice * 0.1).toFixed(0);
