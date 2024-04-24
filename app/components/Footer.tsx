@@ -1,5 +1,4 @@
 import styles from "./footer.module.css";
-import { FaShoppingCart } from "react-icons/fa";
 
 export default function Header() {
   return (
