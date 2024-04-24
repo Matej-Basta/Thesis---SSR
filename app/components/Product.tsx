@@ -1,5 +1,6 @@
 "use client";
 import ProductType from '../types/ProductInterface';
+import Image from 'next/image';
 import styles from './product.module.css';
 import { useGenerationStoreCart } from '../state/cart';
 
@@ -18,7 +19,7 @@ export default function Product({ product }: { product: ProductType }) {
 
     return (
         <div className={styles["product-container"]}>
-            <img src={product.image} alt={product.name} width={200} height={200} className={styles["product-image"]}/>
+            <Image src={product.image} alt={product.name} width={200} height={200} className={styles["product-image"]}/>
             <div className={styles["product-text"]}>
                 <div className={styles["product-header"]}>
                     <h2 className={styles["product-heading"]}>{product.name}</h2>
