@@ -3,7 +3,7 @@ import Product from './Product';
 import styles from './products.module.css';
 
 async function getData() {
-  const response = await fetch('http://localhost:8080/api/products');
+  const response = await fetch('https://server-for-products.vercel.app/api/products');
   return response.json();
 }
 
